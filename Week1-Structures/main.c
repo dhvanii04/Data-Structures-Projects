@@ -17,22 +17,28 @@ int main(){
         scanf("%d", &code);
         switch (code){
             case 0:
-                qty0++;
+                printf("Enter the quantity: ");
+                scanf("%d", &qty0);
                 break;
             case 1:
-                qty1++;
+                printf("Enter the quantity: ");
+                scanf("%d", &qty1);
                 break;
             case 2:
-                qty2++;
+                printf("Enter the quantity: ");
+                scanf("%d", &qty2);
                 break;
             case 3:
-                qty3++;
+                printf("Enter the quantity: ");
+                scanf("%d", &qty3);
                 break;
             case 4:
-                qty4++;
+                printf("Enter the quantity: ");
+                scanf("%d", &qty4);
                 break;
             case 5:
-                qty5++;
+                printf("Enter the quantity: ");
+                scanf("%d", &qty5);
                 break;
         }
         if(code>5){
@@ -44,8 +50,11 @@ int main(){
             scanf("%d", &resp);
             if(resp == 0){
                 printInvoice(qty0,qty1,qty2,qty3,qty4,qty5);
-                exportTotext(qty0,qty1,qty2,qty3,qty4,qty5);
+                fileIO(qty0,qty1,qty2,qty3,qty4,qty5);
                 break;
+            }
+            else if (resp > 1){
+                printf("Please enter a valid value!!");
             }
         }
     }
