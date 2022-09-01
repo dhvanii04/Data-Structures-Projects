@@ -35,11 +35,3 @@ void printInvoice(int qty0, int qty1, int qty2, int qty3, int qty4, int qty5){
     printf("|                                       TOTAL COST: | %d           |\n", bill);
     printf("+-------------------------------------------------------------------+\n");
 }
-void exportTOtext(qty0,qty1,qty2,qty3,qty4,qty5)
-{
-FILE *text;
-int i;
-text=fopen("Bill.txt","w");
-fprintf(text,"food:%s\n price:%d\nMax time taken:",z[i].menu,x.menu,y.menu)
-fclose(text);
-}
