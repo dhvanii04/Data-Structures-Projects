@@ -1,2 +1,2 @@
-DS-Project 2
-TOPIC - Journal Entry Project
+# DS-Project 2
+- TOPIC - Journal Entry Project
