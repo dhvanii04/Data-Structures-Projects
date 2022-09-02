@@ -9,7 +9,7 @@ int qty0=0, qty1=0, qty2=0, qty3=0, qty4=0, qty5=0;
 int bill;
 
 int main(){
-    display();
+    display();  //display menu
     int tst = 1;
     while(tst==1){
         printf("Enter the code for the required dish: ");
@@ -49,9 +49,9 @@ int main(){
             int resp;
             scanf("%d", &resp);
             if(resp == 0){
-                printInvoice(qty0,qty1,qty2,qty3,qty4,qty5);
-                fileIO(qty0,qty1,qty2,qty3,qty4,qty5);
-                break;
+                printInvoice(qty0,qty1,qty2,qty3,qty4,qty5); //calls function from library to print bill
+                fileIO(qty0,qty1,qty2,qty3,qty4,qty5);  //calls to export invoice to txt file
+                break; 
             }
             else if (resp > 1){
                 printf("Please enter a valid value!!");
