@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stack2.h"
+#include "stack.h"
 
 int main(){
     int acc_sheet[100][4];
