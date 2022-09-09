@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "stack.h"
 #include "fileIO.h"
+#include "accStat.h"
+#include "popRecords.h"
 
 int main(){
-    int acc_sheet[100][4];
     printf("+---------------------------------------------------+\n");
     printf("|                Account Statement                  |\n");
     printf("+---------------------------------------------------+\n");
@@ -65,28 +66,10 @@ int main(){
 
     fileWrite(date, transactionID, debit, credit, top_date, balance);
     fileWritetxt(date, transactionID, debit, credit, top_date, acc_number, balance);
-
-    printf("\nAccount Number: %d \n", acc_number);
-    printf("Opening Balance: %d \n", balance);
-    printf("+------------------------------------------------------------------------------+");
-    printf("|\nDate\t\tTransaction ID\t\tDebit\t\tCredit\t\tBalance \n|");
-    printf("+------------------------------------------------------------------------------+");
-    for(int i = 0; i < top_date; i++){
-        balance = balance - debit[i] + credit[i];
-        printf("|%d\t\t%d\t\t%d\t\t%d\t\t%d\n|", date[i], transactionID[i], debit[i], credit[i], balance);
-    }
-    printf("+------------------------------------------------------------------------------+");
-    for(int i=0; i<top_date; i++){
-        pop(date, top_date);
-    }
-    for(int i=0; i<top_transactionID; i++){
-        pop(transactionID, top_transactionID);
-    }
-    for(int i=0; i<top_debit; i++){
-        pop(debit, top_debit);
-    }
-    for(int i=0; i<top_credit; i++){
-        pop(credit, top_credit);
-    }
+    accStat(acc_number, balance, debit, credit, transactionID, date, top_date);
+    popRecords(date, top_date);
+    popRecords(transactionID, top_transactionID);
+    popRecords(debit, top_debit);
+    popRecords(credit, top_credit);
     return 0;
 }
