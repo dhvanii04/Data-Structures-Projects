@@ -1,33 +1,52 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "queue.h"
+#include "queue1.h"
 int main(){
     printf("+---------------------------------------------------+\n");
-    printf("|                CodeForces Ranking System                 |\n");
+    printf("|                CodeForces Ranking System          |\n");
     printf("+---------------------------------------------------+\n");
 int capacity;
 
 int front=0;
     int rear=0;
     char name[20];
-    int roll_no;
-    printf("Enter the number of participants: \n");
-    scanf("%d", &capacity);
-int a[capacity];
-int b[capacity];
+    int id;
+int a[100];
+int b[100];
+int c[100];
 int i;
-for(i=0; i<capacity; i++){
+int users=3;
+
+
+while(users--){   //question 1 inputs
+    printf("For submitting question 1A,please enter your id");
+    scanf("%d",&id);
+    a[100],rear=enqueue(a, id, rear);
+    }
     
-    printf("Enter your name: \n");
-    gets(name);
-
-    printf("Enter your roll number: \n");
-    scanf("%d", &roll_no);
-
-    insq(a, &rear, name);
+while(users--){ //question 2 inputs
+printf("For submitting question 1B,please enter your id");
+scanf("%d",&id);
+b[100],rear=enqueue(b, id, rear);
 }
+
+while(users--){ //question 3 inputs
+printf("For submitting question 1C,please enter your id");
+scanf("%d",&id);
+c[100],rear=enqueue(c, id, rear);
 }
+
+void Finalranks(int a[],int b[], int c[]){
+    printf("-----------------------------")
+    printf("Rating for questions are:")
+    printf("|\nQuestion 1A\t\tQuestion 1B\t\tQuestion 3\n|")
+    for(int i=0;i<users;i++){
+        printf("|%d\t\t%d\t\t%d|\n",a[100],b[100],c[100]);
+    }
+    printf("---------------------------------------------")
+}
+    
 // {  
 //     int a[100];
     
