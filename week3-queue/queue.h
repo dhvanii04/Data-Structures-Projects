@@ -15,7 +15,7 @@ int dequeue(int a[100], int front)
     else{
         a[front] = 0;
         front++;
-        return  front;
+        return front;
     }
 }
      
