@@ -24,20 +24,22 @@ while(users--){   //question 1 inputs
     scanf("%d",&id);
     a[100],rear=enqueue(a, id, rear);
     }
-    
+    users=3;
 while(users--){ //question 2 inputs
 printf("For submitting question 1B,please enter your id");
 scanf("%d",&id);
 b[100],rear=enqueue(b, id, rear);
 }
-
+users=3;
 while(users--){ //question 3 inputs
 printf("For submitting question 1C,please enter your id");
 scanf("%d",&id);
 c[100],rear=enqueue(c, id, rear);
-}
 
-void Finalranks(int a[],int b[], int c[]){
+}
+Finalranks(a,b,c,users);
+}
+void Finalranks(int a[],int b[], int c[],int users){
     printf("-----------------------------");
     printf("Rating for questions are:");
     printf("|\nQuestion 1A\t\tQuestion 1B\t\tQuestion 3\n|");
@@ -46,4 +48,4 @@ void Finalranks(int a[],int b[], int c[]){
     }
     printf("---------------------------------------------");
 }
-}
+
