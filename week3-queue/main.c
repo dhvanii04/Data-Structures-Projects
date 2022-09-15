@@ -38,12 +38,12 @@ c[100],rear=enqueue(c, id, rear);
 }
 
 void Finalranks(int a[],int b[], int c[]){
-    printf("-----------------------------")
-    printf("Rating for questions are:")
-    printf("|\nQuestion 1A\t\tQuestion 1B\t\tQuestion 3\n|")
+    printf("-----------------------------");
+    printf("Rating for questions are:");
+    printf("|\nQuestion 1A\t\tQuestion 1B\t\tQuestion 3\n|");
     for(int i=0;i<users;i++){
         printf("|%d\t\t%d\t\t%d|\n",a[100],b[100],c[100]);
     }
-    printf("---------------------------------------------")
+    printf("---------------------------------------------");
 }
 }
