@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "queue1.h"
+#include "queue.h"
 int main(){
     printf("+---------------------------------------------------+\n");
     printf("|                CodeForces Ranking System          |\n");
