@@ -11,21 +11,21 @@ int main(){
 	int fd,flag = 1,no_processes = 1;
 	fd = open("process.txt", O_RDONLY);
 	char buffer[150],ch[2];
-	while (flag > 0){ //read file
+	while (flag > 0){
 		int i = 0;
 		while (1){
 			flag = read(fd, ch, 1);
-			if (flag <= 0){//end of file
+			if (flag <= 0){
 				break;
 			}
 			if (ch[0] == '\n'){
-				no_processes++; //increments no of process for each end of line in file
+				no_processes++; 
 				strncat(buffer, ":\n", 3);
 				continue;
 			}
-			if (ch[0] == 'P'){// no need to store the  process in string
-				flag = read(fd, ch, 1);//skip
-				flag = read(fd, ch, 1);// skip 
+			if (ch[0] == 'P'){
+				flag = read(fd, ch, 1);
+				flag = read(fd, ch, 1);
 				continue;
 			}
 			if (i == 0)	{ 
@@ -37,25 +37,25 @@ int main(){
 		}
 	} 
 	if (buffer[strlen(buffer) - 2] == ':')
-        no_processes--; //in case there is an additional end of line at the end of the file
+        no_processes--;
 	int no_resources = resource_count(buffer);
 	printf("\nString read from file -- \n%s\n\n", buffer);
 	printf("Number of Processes: %d\nNumber of Resources: %d\n\n",no_processes,no_resources);
 	int no_vertices = no_processes + no_resources;
 	char *names[no_vertices],v_name[3];	
-	for (int i = 0; i <= no_processes; i++){// assign process name to the names array
+	for (int i = 0; i <= no_processes; i++){
 		sprintf(v_name, "P%d", i + 1);
 		names[i] = strdup(v_name);
 		memset(v_name, 0, strlen(v_name));
 	}
 	int z = 1;
-	for (int i = no_processes; i < no_vertices; i++){// assign resource name to the names array
+	for (int i = no_processes; i < no_vertices; i++){
 		sprintf(v_name, "R%d", z);
-		names[i] = strdup(v_name);//returns pointer of string
-		memset(v_name, 0, strlen(v_name));//empty string
+		names[i] = strdup(v_name);
+		memset(v_name, 0, strlen(v_name));
 		z++;
 	}
-	node graph[no_vertices]; //array of nodes for each vertex in the graph
+	node graph[no_vertices];
 	for (int i = 0; i < no_vertices; i++){
 		graph[i].vertex_number = i;
 		graph[i].visit_flag = 0;
@@ -65,14 +65,14 @@ int main(){
 	int process_vertex = 0,swap=0;	
 	for (int k = 0; k < strlen(buffer); k++){
 		if (buffer[k] == ')'){
-			swap = 1; // resource to process
+			swap = 1;
 		}
 		if (buffer[k] == ':'){ 
 			process_vertex++;
-			swap = 0; //process to resource
+			swap = 0;
 		}
 		if (isdigit(buffer[k]) && swap == 0){
-			int x = buffer[k] + no_processes - 1 - '0'; //convert char to int (-1 and + no_process to convert to respective array index)
+			int x = buffer[k] + no_processes - 1 - '0';
 			new_edge(&graph[x], process_vertex, names);
 		}
 		if (isdigit(buffer[k]) && swap == 1){
